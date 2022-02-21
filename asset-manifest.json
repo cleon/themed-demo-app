@@ -1,22 +1,13 @@
 {
   "files": {
-    "main.css": "/themed-demo-app/static/css/main.58fc461b.chunk.css",
-    "main.js": "/themed-demo-app/static/js/main.ae8d3ca5.chunk.js",
-    "main.js.map": "/themed-demo-app/static/js/main.ae8d3ca5.chunk.js.map",
-    "runtime-main.js": "/themed-demo-app/static/js/runtime-main.cf149114.js",
-    "runtime-main.js.map": "/themed-demo-app/static/js/runtime-main.cf149114.js.map",
-    "static/js/2.826f1711.chunk.js": "/themed-demo-app/static/js/2.826f1711.chunk.js",
-    "static/js/2.826f1711.chunk.js.map": "/themed-demo-app/static/js/2.826f1711.chunk.js.map",
-    "index.html": "/themed-demo-app/index.html",
-    "precache-manifest.063d9996dca5e20e8727d2ee09698c06.js": "/themed-demo-app/precache-manifest.063d9996dca5e20e8727d2ee09698c06.js",
-    "service-worker.js": "/themed-demo-app/service-worker.js",
-    "static/css/main.58fc461b.chunk.css.map": "/themed-demo-app/static/css/main.58fc461b.chunk.css.map",
-    "static/js/2.826f1711.chunk.js.LICENSE.txt": "/themed-demo-app/static/js/2.826f1711.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.fe971334.css",
+    "main.js": "/static/js/main.09bd4464.js",
+    "index.html": "/index.html",
+    "main.fe971334.css.map": "/static/css/main.fe971334.css.map",
+    "main.09bd4464.js.map": "/static/js/main.09bd4464.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.cf149114.js",
-    "static/js/2.826f1711.chunk.js",
-    "static/css/main.58fc461b.chunk.css",
-    "static/js/main.ae8d3ca5.chunk.js"
+    "static/css/main.fe971334.css",
+    "static/js/main.09bd4464.js"
   ]
 }
