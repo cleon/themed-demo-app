@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/themed-demo-app/static/css/main.fe971334.css",
-    "main.js": "/themed-demo-app/static/js/main.621d4347.js",
+    "main.js": "/themed-demo-app/static/js/main.70b12d3d.js",
     "index.html": "/themed-demo-app/index.html",
     "main.fe971334.css.map": "/themed-demo-app/static/css/main.fe971334.css.map",
-    "main.621d4347.js.map": "/themed-demo-app/static/js/main.621d4347.js.map"
+    "main.70b12d3d.js.map": "/themed-demo-app/static/js/main.70b12d3d.js.map"
   },
   "entrypoints": [
     "static/css/main.fe971334.css",
-    "static/js/main.621d4347.js"
+    "static/js/main.70b12d3d.js"
   ]
 }
