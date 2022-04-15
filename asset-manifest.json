@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/themed-demo-app/static/css/main.fe971334.css",
-    "main.js": "/themed-demo-app/static/js/main.70b12d3d.js",
-    "index.html": "/themed-demo-app/index.html",
-    "main.fe971334.css.map": "/themed-demo-app/static/css/main.fe971334.css.map",
-    "main.70b12d3d.js.map": "/themed-demo-app/static/js/main.70b12d3d.js.map"
+    "main.css": "/static/css/main.064f2b2b.css",
+    "main.js": "/static/js/main.e2486aa1.js",
+    "static/media/Audimat3000-Regulier.woff2": "/static/media/Audimat3000-Regulier.307ed8f86873d9cea2ab.woff2",
+    "static/media/Sohne-Buch.woff2": "/static/media/Sohne-Buch.b777d742e817429ac558.woff2",
+    "index.html": "/index.html",
+    "main.064f2b2b.css.map": "/static/css/main.064f2b2b.css.map",
+    "main.e2486aa1.js.map": "/static/js/main.e2486aa1.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe971334.css",
-    "static/js/main.70b12d3d.js"
+    "static/css/main.064f2b2b.css",
+    "static/js/main.e2486aa1.js"
   ]
 }
