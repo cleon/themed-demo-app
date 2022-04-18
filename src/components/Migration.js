@@ -24,11 +24,10 @@ function FFToggleNode() {
 }
 
 const nodeTypes = {
-    toggleNode: FFToggleNode(),
+    toggleNode: FFToggleNode()
 };
 
 const CustomNodeFlow = () => {
-
     const nodes = [{
         id: '1',
         type: 'input',

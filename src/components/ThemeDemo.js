@@ -23,6 +23,7 @@ export default function ThemedDemo() {
 	const HeroImage = () => {
 		const imageSrc = (context.selectedItem != context.NOP) ? context.selectedItem.image : context.defaultItemImage;
 		let cursor = '';
+		let cssClass = null;
 		let clickHandler = null;
 		let clickMessage = null;
 
@@ -30,11 +31,12 @@ export default function ThemedDemo() {
 			cursor = 'pointer';
 			clickHandler = imageClick;
 			clickMessage = <Center><Text className='blink' mt={1} fontSize={{ base: 40, md: 60, lg: 100 }} lineHeight={1} fontWeight='bold'>CLICK ME!</Text></Center>;
+			cssClass = 'pulse';
 		}
 
 		return <Box onClick={clickHandler} cursor={cursor}>
 			<Center>
-				<Image mt={3} height='auto' maxWidth={{ base: '40%', md: '60%' }} src={imageSrc} />
+				<Image mt={3} height='auto' maxWidth={{ base: '40%', md: '60%' }} src={imageSrc} className={cssClass} />
 			</Center>
 			{clickMessage}
 		</Box>;

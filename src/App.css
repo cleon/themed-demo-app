@@ -32,6 +32,27 @@
     }
 }
 
+.pulse {
+    animation: pulse 1.25s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    90% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
 @font-face {
     font-family: 'Söhne';
     src: url('/public/Sohne-Buch.woff2') format('woff2');
@@ -90,5 +111,4 @@
     border: 1px solid #555;
     border-radius: 40px;
     text-align: center;
-  }
-  
+}
