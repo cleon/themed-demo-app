@@ -80,7 +80,8 @@
 		},
 		{
 			"name": "Kansas City Chiefs",
-			"image": "https://content.sportslogos.net/logos/7/162/full/857.png"
+			"image": "https://content.sportslogos.net/logos/7/162/full/857.png",
+			"sound": "themes/football/chiefs.mp3"
 		},
 		{
 			"name": "Las Vegas Raiders",
