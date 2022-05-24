@@ -21,7 +21,7 @@ export default function ThemedDemo() {
 	}
 
 	const HeroImage = () => {
-		const imageSrc = (context.selectedItem != context.NOP) ? context.selectedItem.image : context.defaultItemImage;
+		const imageSrc = (context.selectedItem !== context.NOP) ? context.selectedItem.image : context.defaultItemImage;
 		let cursor = '';
 		let cssClass = null;
 		let clickHandler = null;

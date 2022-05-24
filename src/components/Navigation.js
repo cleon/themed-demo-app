@@ -53,7 +53,6 @@ export default function Navigation() {
 				border='2px' borderColor='gray.300'
 				size={'md'}
 				icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-				aria-label={'Open Menu'}
 				display={{ md: 'none' }}
 				onClick={isOpen ? onClose : onOpen} />
 			: null;

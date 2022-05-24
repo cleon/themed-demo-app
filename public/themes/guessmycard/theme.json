@@ -1,5 +1,5 @@
 {
-    "theme": "Migration",
+    "theme": "guessmycard",
     "themeStyle": {
         "colors": {
             "brand": {
@@ -10,15 +10,7 @@
         },
         "fonts": {},
         "styles": {
-            "global": {
-                "body": {
-                    "bgImage": "url('noise.png')",
-                    "color": "#282828"
-                },
-                "img.ldLogoImage": {
-                    "content": "url('ld_logo_white.png')"
-                }
-            }
+           
         }
     },
     "heroImage": "",

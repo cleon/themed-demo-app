@@ -8,8 +8,44 @@ const ENV = process.env.REACT_APP_LD_PROJECT_ENV_KEY;
 const PROJ = process.env.REACT_APP_LD_PROJECT_KEY;
 
 let themes = [];
+let cards = [];
 
 const FF = {
+    getGuessableCardVariations: function () {
+        return new Promise((resolve, reject) => {
+            if (cards.length > 0) resolve(cards);
+            LD.getFeatureFlag(PROJ,
+                'demoGuess',
+                { 'env': ENV },
+                (err, data, response) => {
+                    if (err) { console.error('Error fetching card list', err); reject(); }
+                    cards = (data) ? data.variations : [];
+                    resolve(cards);
+                });
+        });
+    },
+    setGuessedCardVariation: function (card) {
+        return new Promise((resolve, reject) => {
+            const index = cards.findIndex(c => c.name === card);
+            if (index > -1) {
+                LD.patchFeatureFlag(PROJ,
+                    'demoGuess',
+                    {
+                        patch: [{
+                            op: 'replace',
+                            path: `/environments/${ENV}/fallthrough`,
+                            value: {
+                                variation: index
+                            }
+                        }]
+                    },
+                    (error, data, response) => {
+                        if (error) { console.error('Error updating demoGuess fallthrough', error); reject(); }
+                        resolve();
+                    });
+            }
+        });
+    },
     getDemoThemeVariations: function () {
         return new Promise((resolve, reject) => {
             if (themes.length > 0) resolve(themes);
@@ -25,7 +61,7 @@ const FF = {
     },
     updateDemoThemeFallthrough: function (theme) {
         return new Promise((resolve, reject) => {
-            const index = themes.findIndex(e => e.name == theme);
+            const index = themes.findIndex(e => e.name === theme);
             if (index > -1) {
                 LD.patchFeatureFlag(PROJ,
                     'demoTheme',
@@ -34,7 +70,7 @@ const FF = {
                             op: 'replace',
                             path: `/environments/${ENV}/fallthrough`,
                             value: {
-                                variation: index    
+                                variation: index
                             }
                         }]
                     },

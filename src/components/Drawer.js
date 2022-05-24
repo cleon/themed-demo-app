@@ -38,8 +38,8 @@ export default function SettingsDrawer() {
         ldClient
             .identify({ ...user, custom: { ...user.custom, selection: value } })
             .then(() => {
-                const selectedContextItem = (value != context.NOP) ?
-                    context.items.find(item => item.name == value) :
+                const selectedContextItem = (value !== context.NOP) ?
+                    context.items.find(item => item.name === value) :
                     context.NOP;
                 setContext(previousContext => ({ ...previousContext, selectedItem: selectedContextItem }));
             });
