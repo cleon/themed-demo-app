@@ -1,0 +1,22 @@
+{
+    "theme": "guessmycard",
+    "themeStyle": {
+        "colors": {
+            "brand": {
+                "title": "#ffffff",
+                "title_bg1": "#212121",
+                "title_bg2": "#303131"
+            }
+        },
+        "fonts": {},
+        "styles": {
+           
+        }
+    },
+    "heroImage": "",
+    "navLinks": [],
+    "itemType": "",
+    "clickSound": "",
+    "defaultItemImage": "",
+    "items": []
+}

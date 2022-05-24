@@ -3,12 +3,23 @@
     "themeStyle": {
         "colors": {
             "brand": {
-                "title": "#ebff38",
-                "title_bg1": "#282828",
-                "title_bg2": "#1E1E1E"
+                "title": "#ffffff",
+                "title_bg1": "#212121",
+                "title_bg2": "#303131"
             }
         },
-        "fonts": {}
+        "fonts": {},
+        "styles": {
+            "global": {
+                "body": {
+                    "bgImage": "url('noise.png')",
+                    "color": "#282828"
+                },
+                "img.ldLogoImage": {
+                    "content": "url('ld_logo_white.png')"
+                }
+            }
+        }
     },
     "heroImage": "",
     "navLinks": [],
