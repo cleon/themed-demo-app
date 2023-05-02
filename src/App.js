@@ -4,7 +4,6 @@ import { useFlags, useLDClient } from 'launchdarkly-react-client-sdk';
 import QRCode from 'react-qr-code';
 import Navigation from './components/Navigation.js';
 import ThemedDemo from './components/ThemeDemo.js';
-import Migration from './components/Migration.js';
 import APIDemo from './components/APIDemo.js';
 import GuessMyCard from './components/GuessMyCard.js';
 import './App.css';
@@ -125,9 +124,6 @@ function App() {
   const AppComponents = () => {
     const components = [];
     switch (demoTheme.toLowerCase()) {
-      case 'migration':
-        components.push(<Migration />);
-        break;
       case 'guessmycard':
         components.push(<AdminAPIControls />, <GuessMyCard />);
         break;

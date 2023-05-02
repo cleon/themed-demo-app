@@ -10,10 +10,8 @@ import App from './App.js';
   const params = new URLSearchParams(window.location.search);
   const email = params.get('email');
   const cid = params.get('cid') || process.env.REACT_APP_LD_CLIENT_SIDE_ID;
-  //const email = new URLSearchParams(window.location.search).get('email');
 
   const LDProvider = await asyncWithLDProvider({
-    //clientSideID: process.env.REACT_APP_LD_CLIENT_SIDE_ID,
     clientSideID: cid,
     reactOptions: {
       useCamelCaseFlagKeys: false
