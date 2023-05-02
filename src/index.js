@@ -7,10 +7,14 @@ import App from './App.js';
   const draw = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1');
   const hand = await draw.json();
   const card = hand.cards[0];
-  const email = new URLSearchParams(window.location.search).get('email');
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get('email');
+  const cid = params.get('cid');
+  //const email = new URLSearchParams(window.location.search).get('email');
 
   const LDProvider = await asyncWithLDProvider({
-    clientSideID: process.env.REACT_APP_LD_CLIENT_SIDE_ID,
+    //clientSideID: process.env.REACT_APP_LD_CLIENT_SIDE_ID,
+    clientSideID: cid || process.env.REACT_APP_LD_CLIENT_SIDE_ID,
     reactOptions: {
       useCamelCaseFlagKeys: false
     },
