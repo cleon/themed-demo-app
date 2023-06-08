@@ -53,7 +53,7 @@ export default function ThemedDemo() {
 
 			audioRef.current.addEventListener('ended', () => {
 				audioRef.current.currentTime = 0;
-				if (isMounted) setAudioPlaying(false)
+				if (isMounted) setAudioPlaying(false);
 			});
 		}
 		return () => { isMounted = false };

@@ -31,12 +31,13 @@ export default function SettingsDrawer() {
 
     function selectedItemChanged(e) {
         const value = e.target.value;
-        const user = ldClient.getUser();
+        const ctx = ldClient.getContext();
+        ctx.user.selection = value;
 
         setSelectionValue(value);
 
         ldClient
-            .identify({ ...user, custom: { ...user.custom, selection: value } })
+            .identify({ ...ctx })
             .then(() => {
                 const selectedContextItem = (value !== context.NOP) ?
                     context.items.find(item => item.name === value) :

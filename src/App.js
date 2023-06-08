@@ -10,6 +10,8 @@ import './App.css';
 
 export const DemoContext = createContext();
 
+//  "homepage": "https://cleon.github.io/themed-demo-app",
+
 function App() {
   const { demoTheme, demoSoundEnabled, demoQRCode, demoQRCodeWebPage, demoBroken, demoServerBroken, demoAdmin, demoGuess } = useFlags();
   const [context, setContext] = useState({});
@@ -59,7 +61,7 @@ function App() {
 
     ctx = {
       ...ctx,
-      avatar: ldClient.getUser().avatar,
+      avatar: ldClient.getContext().user.avatar,
       soundEnabled: demoSoundEnabled,
       showQRCode: demoQRCode,
       qrCodeForWebPage: demoQRCodeWebPage,
@@ -76,10 +78,10 @@ function App() {
   }
 
   async function resetUserSelection() {
-    const user = ldClient.getUser();
-    if (user.custom.selection !== DEFAULT) {
-      const newUser = { ...user, custom: { ...user.custom, selection: DEFAULT } };
-      await ldClient.identify(newUser);
+    const context = ldClient.getContext();
+    if (context.user.selection !== DEFAULT) {
+      context.user.selection = DEFAULT;
+      await ldClient.identify({ ...context });
     }
   }
 
