@@ -13,6 +13,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import SettingsDrawer from './Drawer.js';
 import Broken from './Broken.js';
+import DFM from './DFM.js';
 
 export default function Navigation() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,6 +39,10 @@ export default function Navigation() {
 		return showUIBroken ? <div><Broken /></div> : null;
 	}
 
+	const DownForMaintenance = () => {
+		return context.downForMaintenance == "Show Now" ? <DFM/> : null;
+	};
+
 	const NavLinksWithBrokenLink = () => {
 		return hasNavLinks ?
 			context.navLinks.map((link, index) =>
@@ -62,6 +67,7 @@ export default function Navigation() {
 		<Box px={2} w='full' textAlign='center' justifyContent='center'>
 			<ServerBroken />
 			<UIBroken />
+			<DownForMaintenance/>
 			<Flex h={20} alignItems='center' justifyContent='space-between'>
 				<CloseMenuButton />
 				<Flex>

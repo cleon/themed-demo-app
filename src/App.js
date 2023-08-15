@@ -13,7 +13,7 @@ export const DemoContext = createContext();
 //  "homepage": "https://cleon.github.io/themed-demo-app",
 
 function App() {
-  const { demoTheme, demoSoundEnabled, demoQRCode, demoQRCodeWebPage, demoBroken, demoServerBroken, demoAdmin, demoGuess } = useFlags();
+  const { demoTheme, demoSoundEnabled, demoQRCode, demoQRCodeWebPage, demoBroken, demoServerBroken, demoAdmin, demoGuess, downForMaintenance } = useFlags();
   const [context, setContext] = useState({});
   const ldClient = useLDClient();
   const theme = useRef();
@@ -50,6 +50,10 @@ function App() {
   useEffect(() => {
     setContext(previousContext => ({ ...previousContext, cardGuess: demoGuess }));
   }, [demoGuess]);
+
+  useEffect(() => {
+    setContext(previousContext => ({ ...previousContext, downForMaintenance: downForMaintenance }));
+  }, [downForMaintenance]);
 
   async function updateThemeInfo(demoTheme) {
     let ctx = themeCache.current[demoTheme];

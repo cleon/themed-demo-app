@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { DemoContext } from '../App.js';
+import DFM from './DFM.js';
 
 export default function Broken(props) {
+    const { context, setContext } = useContext(DemoContext);
+    const [showDFM, setShowDFM] = useState(false);
+
     const message = props.server ?
         'Server Error: Too many cat pics' :
         'Oh no! That feature! It\'s broken!';
+
+    let dfmInterval = 0;
+    useEffect(() => {
+        if (context.downForMaintenance == "Show On Error") {
+            dfmInterval = setInterval(() => {
+                setShowDFM(true);
+            }, 3000);
+        } else {
+            setShowDFM(false);
+            clearInterval(dfmInterval);
+        }
+        return () => { clearInterval(dfmInterval); };
+    }, [context.downForMaintenance])
+
+    const DownForMaintenance = () => {
+        return (context.downForMaintenance == "Show On Error") ? (showDFM && <DFM />) : null;
+    };
 
     return (
         <div style={{
@@ -37,6 +59,7 @@ export default function Broken(props) {
                     *** START: (0xRELEASFEATURESWITHFLAGS, 0xSEPARATEDEPLOYFROMRELEASE, 0xTESTINPRODUCTION)
                 </div>
             </div>
+            <DownForMaintenance />
         </div>
     );
 }

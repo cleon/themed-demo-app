@@ -77,7 +77,8 @@ import App from './App.js';
       'demoAdmin': false,
       'demoBroken': false,
       'demoServerBroken': false,
-      'demoGuess': 'Default'
+      'demoGuess': 'Default',
+      'downForMaintenance': 'Off'
     }
   });
 
