@@ -105,6 +105,9 @@
 /* migration */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
+/* tswift */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+
 .code {
     font-family: 'JetBrains Mono', monospace;
 }
