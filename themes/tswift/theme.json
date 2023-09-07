@@ -1,0 +1,42 @@
+{
+	"theme": "Taylor Swift",
+	"themeStyle": {
+		"colors": {
+			"brand": {
+				"title": "#ffffff",
+				"title_bg1": "#7DB7D8",
+				"title_bg2": "#F4A6C2"
+			}
+		},
+		"fonts": {
+			"heading": "IM Fell DW Pica"
+		}
+	},
+	"heroImage": "themes/tswift/hero.jpg",
+	"navLinks": ["Tickets"],
+	"itemType": "album",
+	"clickSound": "themes/tswift/sound.mp3",
+	"defaultItemImage": "themes/tswift/default.png",
+	"items": [
+		{
+			"name": "Midnights",
+			"image": "themes/tswift/midnights.png",
+            "sound": "themes/tswift/midnights.mp3"
+		},
+        {
+			"name": "Reputation",
+			"image": "themes/tswift/reputation.jpg",
+            "sound": "themes/tswift/reputation.mp3"
+		},
+        {
+			"name": "Evermore",
+			"image": "themes/tswift/evermore.jpg",
+            "sound": "themes/tswift/evermore.mp3"
+		},
+        {
+			"name": "Folklore",
+			"image": "themes/tswift/folklore.jpg",
+            "sound": "themes/tswift/folklore.mp3"
+		}
+	]
+}
