@@ -20,6 +20,7 @@ export default function Navigation() {
 	const { context } = useContext(DemoContext);
 	const [showUIBroken, setShowUIBroken] = useState(false);
 	const hasNavLinks = (context.navLinks?.length > 0);
+	const backOfCard = "https://www.deckofcardsapi.com/static/img/back.png";
 
 	useEffect(() => {
 		if (!context.demoBroken && showUIBroken) {
@@ -29,6 +30,11 @@ export default function Navigation() {
 
 	function firstLinkClicked() {
 		setShowUIBroken(context.demoBroken);
+	}
+
+	function avatarClick(e) {
+		const img = e.target;
+		img.src = (img.src == backOfCard) ? context.avatar : backOfCard;
 	}
 
 	const ServerBroken = () => {
@@ -68,7 +74,7 @@ export default function Navigation() {
 			<ServerBroken />
 			<UIBroken />
 			<DownForMaintenance/>
-			<Flex h={20} alignItems='center' justifyContent='space-between'>
+			<Flex h={20} alignItems='center' justifyContent='space-between' marginTop={1} marginBottom={1}>
 				<CloseMenuButton />
 				<Flex>
 					<Image marginLeft='8px' src='ld_logo_dark.png' height='1.5rem' width='9.75rem' className='ldLogoImage' />
@@ -84,9 +90,11 @@ export default function Navigation() {
 					<SettingsDrawer />
 
 					<Image
-						htmlHeight={64}
-						htmlWidth={50}
-						src={context.avatar} />
+						onClick={avatarClick}
+						htmlHeight={74}
+						htmlWidth={58}
+						cursor="pointer"
+						src={backOfCard} />
 				</HStack>
 			</Flex>
 
