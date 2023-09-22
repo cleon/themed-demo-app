@@ -1,0 +1,58 @@
+{
+	"theme": "Halloween",
+	"themeStyle": {
+		"colors": {
+			"brand": {
+				"title": "yellow",
+				"title_bg1": "#ff8c00",
+				"title_bg2": "#ff8c00"
+			}
+		},  
+		"fonts": {
+			"heading": "Creepster"
+		},
+        "styles": {
+            "global": {
+                "body": {
+                    "bgImage": "url('noise.png')",
+                    "color": "orange"
+                },
+                "img.ldLogoImage": {
+                    "content": "url('ld_logo_white.png')"
+                }
+            }
+        }
+	},
+	"heroImage": "themes/halloween/hero.jpg",
+	"navLinks": ["Tickets"],
+	"itemType": "villain",
+	"clickSound": "themes/halloween/default.mp3",
+	"defaultItemImage": "themes/halloween/default.png",
+	"items": [
+		{
+			"name": "Jason",
+			"image": "themes/halloween/jason.jpeg",
+            "sound": "themes/halloween/jason.mp3"
+		},  
+        {
+			"name": "Freddy",
+			"image": "themes/halloween/freddy.webp",
+            "sound": "themes/halloween/freddy.mp3"
+		},
+        {
+			"name": "Michael",
+			"image": "themes/halloween/michael.webp",
+            "sound": "themes/halloween/michael.mp3"
+		},
+        {
+			"name": "Dracula",
+			"image": "themes/halloween/dracula.webp",
+            "sound": "themes/halloween/dracula.mp3"
+		},
+        {
+			"name": "Leatherface",
+			"image": "themes/halloween/leatherface.jpeg",
+            "sound": "themes/halloween/leatherface.mp3"
+		}
+	]
+}

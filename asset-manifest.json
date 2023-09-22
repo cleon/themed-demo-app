@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/themed-demo-app/static/css/main.f8b84d2d.css",
+    "main.css": "/themed-demo-app/static/css/main.99b4f483.css",
     "main.js": "/themed-demo-app/static/js/main.d0077a52.js",
     "static/media/Audimat3000-Regulier.woff2": "/themed-demo-app/static/media/Audimat3000-Regulier.307ed8f86873d9cea2ab.woff2",
     "static/media/Sohne-Buch.woff2": "/themed-demo-app/static/media/Sohne-Buch.b777d742e817429ac558.woff2",
     "index.html": "/themed-demo-app/index.html",
-    "main.f8b84d2d.css.map": "/themed-demo-app/static/css/main.f8b84d2d.css.map",
+    "main.99b4f483.css.map": "/themed-demo-app/static/css/main.99b4f483.css.map",
     "main.d0077a52.js.map": "/themed-demo-app/static/js/main.d0077a52.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8b84d2d.css",
+    "static/css/main.99b4f483.css",
     "static/js/main.d0077a52.js"
   ]
 }
