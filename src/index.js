@@ -4,7 +4,7 @@ import { asyncWithLDProvider } from 'launchdarkly-react-client-sdk';
 import App from './App.js';
 
 (async () => {
-  const draw = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1');
+  const draw = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1&jokers_enabled=true');
   const hand = await draw.json();
   const card = hand.cards[0];
   const params = new URLSearchParams(window.location.search);

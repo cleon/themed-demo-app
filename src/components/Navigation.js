@@ -20,7 +20,6 @@ export default function Navigation() {
 	const { context } = useContext(DemoContext);
 	const [showUIBroken, setShowUIBroken] = useState(false);
 	const hasNavLinks = (context.navLinks?.length > 0);
-	const backOfCard = "https://www.deckofcardsapi.com/static/img/back.png";
 
 	useEffect(() => {
 		if (!context.demoBroken && showUIBroken) {
@@ -32,11 +31,6 @@ export default function Navigation() {
 		setShowUIBroken(context.demoBroken);
 	}
 
-	function avatarClick(e) {
-		const img = e.target;
-		img.src = (img.src == backOfCard) ? context.avatar : backOfCard;
-	}
-
 	const ServerBroken = () => {
 		return context.demoServerBroken ? <div><Broken server='true' /></div> : null;
 	}
@@ -46,7 +40,7 @@ export default function Navigation() {
 	}
 
 	const DownForMaintenance = () => {
-		return context.downForMaintenance == "Show Now" ? <DFM/> : null;
+		return context.downForMaintenance == "Show Now" ? <DFM /> : null;
 	};
 
 	const NavLinksWithBrokenLink = () => {
@@ -58,7 +52,7 @@ export default function Navigation() {
 			: null;
 	}
 
-	const CloseMenuButton = () => { 
+	const CloseMenuButton = () => {
 		return hasNavLinks ?
 			<IconButton
 				border='2px' borderColor='gray.300'
@@ -73,7 +67,7 @@ export default function Navigation() {
 		<Box px={2} w='full' textAlign='center' justifyContent='center'>
 			<ServerBroken />
 			<UIBroken />
-			<DownForMaintenance/>
+			<DownForMaintenance />
 			<Flex h={20} alignItems='center' justifyContent='space-between' marginTop={1} marginBottom={1}>
 				<CloseMenuButton />
 				<Flex>
@@ -90,11 +84,9 @@ export default function Navigation() {
 					<SettingsDrawer />
 
 					<Image
-						onClick={avatarClick}
 						htmlHeight={74}
 						htmlWidth={58}
-						cursor="pointer"
-						src={backOfCard} />
+						src={context.avatar} />
 				</HStack>
 			</Flex>
 
