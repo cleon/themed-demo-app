@@ -1,6 +1,5 @@
 name: Find LaunchDarkly flag code references
 on: push
-# cancel in-flight workflow run if another push was triggered
 concurrency:
 group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
 cancel-in-progress: true
