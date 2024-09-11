@@ -19,7 +19,9 @@ function App() {
   const theme = useRef();
   const themeCache = useRef([]);
   const DEFAULT = 'DEFAULT';
-  const QRCODE_URL = process.env.REACT_APP_GITHUB_PAGES_URL;
+  const params = new URLSearchParams(window.location.search);
+  const cid = params.get('cid');
+  const QRCODE_URL = process.env.REACT_APP_GITHUB_PAGES_URL + `?cid=${cid}`;
 
   useEffect(() => {
     updateThemeInfo(demoTheme)
