@@ -20,8 +20,8 @@ function App() {
   const themeCache = useRef([]);
   const DEFAULT = 'DEFAULT';
   const params = new URLSearchParams(window.location.search);
-  const cid = params.get('cid') + '';
-  const QRCODE_URL = process.env.REACT_APP_GITHUB_PAGES_URL + `?cid=${cid}`;
+  const cid = params.get('cid');
+  const QRCODE_URL = process.env.REACT_APP_GITHUB_PAGES_URL + (cid ? `?cid=${cid}` : '');
 
   useEffect(() => {
     updateThemeInfo(demoTheme)
