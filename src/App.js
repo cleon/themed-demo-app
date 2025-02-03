@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, createContext, useState } from 'react';
-import { ChakraProvider, Flex, extendTheme, Image, Center, Modal, ModalBody, ModalOverlay, ModalContent, ModalHeader } from '@chakra-ui/react';
+import React, { useEffect, useRef, createContext, useState, memo, useCallback, useMemo } from 'react';
+import { ChakraProvider, Flex, extendTheme, Image, Center, Modal, ModalBody, ModalOverlay, ModalContent, ModalHeader, Switch, HStack, Box, Text } from '@chakra-ui/react';
 import { useFlags, useLDClient } from 'launchdarkly-react-client-sdk';
 import QRCode from 'react-qr-code';
 import Navigation from './components/Navigation.js';
 import ThemedDemo from './components/ThemeDemo.js';
 import APIDemo from './components/APIDemo.js';
 import GuessMyCard from './components/GuessMyCard.js';
+import FF from './components/FF.js';
 import './App.css';
 
 export const DemoContext = createContext();
@@ -13,8 +14,11 @@ export const DemoContext = createContext();
 //  "homepage": "https://cleon.github.io/themed-demo-app",
 
 function App() {
-  const { demoTheme, demoSoundEnabled, demoQRCode, demoQRCodeWebPage, demoBroken, demoServerBroken, demoAdmin, demoGuess, downForMaintenance } = useFlags();
+  const { demoTheme, demoSoundEnabled, demoQRCode, demoQRCodeWebPage, demoBroken, demoServerBroken, demoAdmin, demoGuess, downForMaintenance, enableToggling, enableDemoFeature } = useFlags();
   const [context, setContext] = useState({});
+  const [demoFeatureEnabled, setDemoFeatureEnabled] = useState(enableDemoFeature);
+  const [toggleModalVisible, setToggleModalVisible] = useState(enableToggling);
+  const [togglerEnabled, setTogglerEnabled] = useState(true);
   const ldClient = useLDClient();
   const theme = useRef();
   const themeCache = useRef([]);
@@ -56,6 +60,10 @@ function App() {
   useEffect(() => {
     setContext(previousContext => ({ ...previousContext, downForMaintenance: downForMaintenance }));
   }, [downForMaintenance]);
+
+  useEffect(() => {
+    setToggleModalVisible(enableToggling);
+  }, [enableToggling]);
 
   async function updateThemeInfo(demoTheme) {
     let ctx = themeCache.current[demoTheme];
@@ -104,7 +112,7 @@ function App() {
     };
   }
 
-  const ModalQRCode = () => {
+  const ModalQRCode = memo(() => {
     const modal =
       <Modal size='xs' isOpen={demoQRCode} isCentered={true}>
         <ModalOverlay bg='blackAlpha.800' />
@@ -123,7 +131,41 @@ function App() {
       </Modal>;
 
     return demoQRCode ? modal : null;
-  }
+  });
+
+  const Toggler = memo(() => {
+    const togglerChanged = useCallback((e) => {
+      setTogglerEnabled(false);
+      const on = e.target.checked;
+      FF.toggleDemoFeatureEnabled(on).then(() => {
+        setDemoFeatureEnabled(on);
+        setTogglerEnabled(true);
+      });
+    }, []);
+
+    const modal = <Modal size='xs' isOpen={toggleModalVisible} isCentered={true} motionPreset='none'>
+      <ModalOverlay bg='blackAlpha.800' />
+      <ModalContent>
+        <ModalHeader bg='brand.header_bg1'>
+          <Center>
+            <Image src='ld_logo_dark.png' height='1.5rem' width='9.75rem' className='ldLogoImage' />
+          </Center>
+        </ModalHeader>
+        <ModalBody>
+          <Center>
+            <Text>Enable: Demo Feature</Text>
+          </Center>
+          <Center>
+            <Text>OFF</Text>
+            <Switch p={2} size="lg" colorScheme='green' defaultChecked={demoFeatureEnabled} checked={demoFeatureEnabled} onChange={togglerChanged} isDisabled={!togglerEnabled} />
+            <Text>ON</Text>
+          </Center>
+        </ModalBody>
+      </ModalContent>
+    </Modal>;
+
+    return enableToggling ? modal : null;
+  });
 
   const AdminAPIControls = () => {
     return demoAdmin ? <APIDemo /> : null;
@@ -147,6 +189,7 @@ function App() {
       <DemoContext.Provider value={{ context, setContext }}>
         <Flex direction="column" w="100%" m="0 auto">
           <ModalQRCode />
+          <Toggler />
           <AppComponents />
         </Flex>
       </DemoContext.Provider>

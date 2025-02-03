@@ -78,7 +78,9 @@ import App from './App.js';
       'demoBroken': false,
       'demoServerBroken': false,
       'demoGuess': 'Default',
-      'downForMaintenance': 'Off'
+      'downForMaintenance': 'Off',
+      'enableToggling': false,
+      'enableDemoFeature': false
     }
   });
 

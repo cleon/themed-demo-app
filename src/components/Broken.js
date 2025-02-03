@@ -12,7 +12,7 @@ export default function Broken(props) {
 
     let dfmInterval = 0;
     useEffect(() => {
-        if (context.downForMaintenance == "Show On Error") {
+        if (context.downForMaintenance === "Show On Error") {
             dfmInterval = setInterval(() => {
                 setShowDFM(true);
             }, 3000);
@@ -24,7 +24,7 @@ export default function Broken(props) {
     }, [context.downForMaintenance])
 
     const DownForMaintenance = () => {
-        return (context.downForMaintenance == "Show On Error") ? (showDFM && <DFM />) : null;
+        return (context.downForMaintenance === "Show On Error") ? (showDFM && <DFM />) : null;
     };
 
     return (

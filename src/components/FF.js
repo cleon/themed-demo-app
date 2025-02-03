@@ -166,6 +166,25 @@ const FF = {
                 }
             );
         });
-    }
+    },
+    toggleDemoFeatureEnabled: function (enabled) {
+        return new Promise((resolve, reject) => {
+            LD.patchFeatureFlag(PROJ,
+                'enableDemoFeature',
+                {
+                    patch: [
+                        {
+                            op: 'replace',
+                            path: `/environments/${ENV}/on`,
+                            value: enabled
+                        }
+                    ]
+                }, (error, data, response) => {
+                    if (error) { console.error('Error toggling enableDemoFeature flag', error); reject(); }
+                    resolve();
+                }
+            );
+        });
+    },
 }
 export default FF;
